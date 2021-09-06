@@ -81,6 +81,7 @@ class RootDialog extends ComponentDialog {
             case 'leaveapp': {
 
                 const fromEntities = this.luisRecognizer.getFromEntities(luisresponse);
+                console.log(fromEntities, ')))))))))))))))))leaveapp Entities')
                 leaveDetails.leaveType = fromEntities.leaveType;
                 leaveDetails.NoOfDays = fromEntities.NoOfDays;
                 leaveDetails.date = fromEntities.date;
@@ -93,8 +94,18 @@ class RootDialog extends ComponentDialog {
                 break;
             case 'help':
                 return await stepContext.beginDialog(helpDialog);
-            case 'payroll':
-                return await stepContext.beginDialog(payrollDialog);
+            case 'payroll': {
+
+                const fromEntities = this.luisRecognizer.getFromEntities(luisresponse);
+                console.log(fromEntities,"++++++++++++payrollEntities");
+                leaveDetails.serviceType = fromEntities.serviceType;
+                leaveDetails.month = fromEntities.month;
+
+                console.log('LUIS extracted these leaving details:', JSON.stringify(leaveDetails));
+                // console.log(leaveDetails.serviceType, '----------------------------------service type');
+                // console.log(leaveDetails.month, '----------------month');
+                return await stepContext.beginDialog(payrollDialog, leaveDetails);
+            }
             default:
                 await stepContext.context.sendActivity('You have entered something wrong');
         }
