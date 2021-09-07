@@ -27,10 +27,10 @@ class Recognizer {
         console.log(result.entities.$instance.datetime[0].text, "Hii")
 
         if(result.entities.$instance.datetime[1]) {
-            if(result.entities.$instance.datetime[0].type == 'builtin.datetimeV2.duration') {
-                NoOfDays = result.entities.$instance.datetime[0].text;
-                console.log(result.entities.$instance.datetime[0].text, 'NoOfDays')
-            }
+            // if(result.entities.$instance.datetime[0].type == 'builtin.datetimeV2.duration') {
+            //     NoOfDays = result.entities.$instance.datetime[0].text;
+            //     console.log(result.entities.$instance.datetime[0].text, 'NoOfDays')
+            // }
          
             if(result.entities.$instance.datetime[1].type == 'builtin.datetimeV2.date') {
                 // console.log(result.entities.$instance.datetime, 'uidgllllllllllllllll')
