@@ -35,7 +35,7 @@ class RootDialog extends ComponentDialog {
         this.addDialog(new ApplyLeaveDialog(conversationState));
         this.addDialog(new PayrollDialog(conversationState));
         this.addDialog(new ConfirmPrompt(CONFIRM_PROMPT));
-        this.addDialog(new OtherDialog(conversationState));
+        this.addDialog(new OtherDialog(conversationState, luisRecognizer));
 
         this.initialDialogId = parseMessage;
 

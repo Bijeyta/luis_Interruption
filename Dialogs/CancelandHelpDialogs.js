@@ -53,7 +53,7 @@ class CancelAndHelpDialog extends ComponentDialog {
                 //     return await innerDc.beginDialog(otherDialog,text);
                 // }
                 console.log(luisResult.text, 'yessssssssssssssssssssssssss')
-                if(luisResult.text != 'Yes' || luisResult.text != 'No') {
+                if(LuisRecognizer.topIntent(luisResult) == 'payroll' || LuisRecognizer.topIntent(luisResult) == 'leaveapp') {
                     if(LuisRecognizer.topIntent(luisResult) != 'None' ){
                         console.log(LuisRecognizer.topIntent(luisResult), '======luisresult is here');
                         const intent = LuisRecognizer.topIntent(luisResult);
